@@ -5,7 +5,7 @@ import 'package:formulastudent/src/view/pages/faq/faq_page.dart';
 import 'package:formulastudent/src/view/pages/myteam/my_team_page.dart';
 import 'package:formulastudent/src/view/pages/teams/teams_page.dart';
 import 'package:formulastudent/src/view/pages/timeline/timeline_page.dart';
-import 'package:formulastudent/src/view/utils/transitions.dart';
+import 'package:get/get.dart';
 
 
 class DrawerWidget extends StatelessWidget {
@@ -52,8 +52,8 @@ class DrawerWidget extends StatelessWidget {
         onTap: () {
           Navigator.pop(context, true);
           if(!(currentPage is TimelinePage)){
-            Navigator.push(context,
-                EnterExitRoute(exitPage: currentPage, enterPage: TimelinePage()));
+            Get.back();
+            Get.offNamed("/timeline");
           }
         },
       ),
@@ -68,10 +68,9 @@ class DrawerWidget extends StatelessWidget {
         title: Text('Teams'),
         dense: true,
         onTap: () {
-          Navigator.pop(context, true);
           if(!(currentPage is TeamsPage)){
-            Navigator.push(context,
-                EnterExitRoute(exitPage: currentPage, enterPage: TeamsPage()));
+            Get.back();
+            Get.offNamed("/teams");
           }
         },
       ),
@@ -86,10 +85,9 @@ class DrawerWidget extends StatelessWidget {
         title: Text('My team'),
         dense: true,
         onTap: () {
-          Navigator.pop(context, true);
           if(!(currentPage is MyTeamPage)){
-            Navigator.push(context,
-                EnterExitRoute(exitPage: currentPage, enterPage: MyTeamPage()));
+            Get.back();
+            Get.offNamed("/myTeam");
           }
         },
       ),
@@ -106,8 +104,8 @@ class DrawerWidget extends StatelessWidget {
         onTap: () {
           Navigator.pop(context, true);
           if(!(currentPage is FaqPage)){
-            Navigator.push(context,
-                EnterExitRoute(exitPage: currentPage, enterPage: FaqPage()));
+            Get.back();
+            Get.offNamed("/faq");
           }
         },
       ),
@@ -124,8 +122,8 @@ class DrawerWidget extends StatelessWidget {
         onTap: () {
           Navigator.pop(context, true);
           if(!(currentPage is ChatPage)){
-            Navigator.push(context,
-                EnterExitRoute(exitPage: currentPage, enterPage: ChatPage()));
+            Get.back();
+            Get.offNamed("/chat");
           }
         },
       ),
@@ -142,8 +140,8 @@ class DrawerWidget extends StatelessWidget {
         onTap: () {
           Navigator.pop(context, true);
           if(!(currentPage is AboutPage)){
-            Navigator.push(context,
-                EnterExitRoute(exitPage: currentPage, enterPage: AboutPage()));
+            Get.back();
+            Get.offNamed("/about");
           }
         },
       ),
@@ -158,7 +156,7 @@ class DrawerWidget extends StatelessWidget {
         title: Text('Logout'),
         dense: true,
         onTap: () {
-          Navigator.pop(context, true);
+          Get.back();
         },
       ),
     );

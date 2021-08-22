@@ -9,41 +9,41 @@ import 'package:get/get.dart';
 class TimelinePageBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<TimelineViewController>(() => TimelineViewController());
+    Get.put<TimelineViewController>(TimelineViewController());
   }
 }
 
 class ChatPageBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<ChatViewController>(() => ChatViewController());
+    Get.put<ChatViewController>(ChatViewController());
   }
 }
 
 class FaqPageBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<FaqViewController>(() => FaqViewController());
+    Get.put<FaqViewController>(FaqViewController());
   }
 }
 
 class MyTeamPageBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<MyTeamViewController>(() => MyTeamViewController());
+    Get.put<MyTeamViewController>(MyTeamViewController());
   }
 }
 
 class TeamsPageBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<TeamsViewController>(() => TeamsViewController());
+    Get.put<TeamsViewController>(TeamsViewController());
   }
 }
 
 class AboutPageBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<AboutViewController>(() => AboutViewController());
+    Get.put<AboutViewController>(AboutViewController());
   }
 }

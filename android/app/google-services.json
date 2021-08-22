@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "871124083212",
+    "firebase_url": "https://fss-app.firebaseio.com",
+    "project_id": "fss-app",
+    "storage_bucket": "fss-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871124083212:android:f0cb0db257c80d69",
+        "android_client_info": {
+          "package_name": "es.formulastudent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "871124083212-2b7h8ci54va7u3p3d7fcod8sa47qrgrg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "es.formulastudent",
+            "certificate_hash": "deb785e06e8d762d83ccd01425abf89d4f92eee3"
+          }
+        },
+        {
+          "client_id": "871124083212-je2534a7mq8fgrt7g1g4ij6o65466hg8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvm6ucspbbUNUSNkrSaktOzWrihGl6svQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "871124083212-je2534a7mq8fgrt7g1g4ij6o65466hg8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871124083212:android:57f1cef36d3df19ec84429",
+        "android_client_info": {
+          "package_name": "es.formulastudent.teams"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "871124083212-je2534a7mq8fgrt7g1g4ij6o65466hg8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvm6ucspbbUNUSNkrSaktOzWrihGl6svQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "871124083212-je2534a7mq8fgrt7g1g4ij6o65466hg8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
