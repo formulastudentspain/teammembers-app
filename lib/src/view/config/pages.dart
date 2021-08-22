@@ -9,29 +9,29 @@ import 'package:get/get.dart';
 List<GetPage> getApplicationPages() {
   return [
     GetPage(
-      name: '/timeline',
-      page: () => TimelinePage(),
-      binding: TimelinePageBinding(),
-    ),
+        name: '/timeline',
+        page: () => TimelinePage(),
+        binding: TimelinePageBinding(),
+        transition: Transition.rightToLeft),
     GetPage(
-      name: '/chat',
-      page: () => ChatPage(),
-      binding: ChatPageBinding(),
-    ),
+        name: '/chat',
+        page: () => ChatPage(),
+        binding: ChatPageBinding(),
+        transition: Transition.rightToLeft),
     GetPage(
-      name: '/faq',
-      page: () => FaqPage(),
-      binding: FaqPageBinding(),
-    ),
+        name: '/faq',
+        page: () => FaqPage(),
+        binding: FaqPageBinding(),
+        transition: Transition.rightToLeft),
     GetPage(
-      name: '/myteam',
-      page: () => MyTeamPage(),
-      binding: MyTeamPageBinding(),
-    ),
+        name: '/myTeam',
+        page: () => MyTeamPage(),
+        binding: MyTeamPageBinding(),
+        transition: Transition.rightToLeft),
     GetPage(
-      name: '/teams',
-      page: () => TeamsPage(),
-      binding: TeamsPageBinding(),
-    )
+        name: '/teams',
+        page: () => TeamsPage(),
+        binding: TeamsPageBinding(),
+        transition: Transition.rightToLeft)
   ];
 }
