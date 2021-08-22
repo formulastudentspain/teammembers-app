@@ -13,10 +13,9 @@ class TeamListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var opcion2 = GestureDetector(
+    var item = GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, 'team_detail',
-            arguments: TeamDetailArguments(team));
+        Get.toNamed("/teamsDetail", arguments: team);
       },
       child: Stack(
         children: <Widget>[
@@ -124,11 +123,6 @@ class TeamListItem extends StatelessWidget {
 
     return Padding(
         padding: const EdgeInsets.only(top: 4, bottom: 4, left: 16, right: 16),
-        child: opcion2);
+        child: item);
   }
-}
-
-class TeamDetailArguments {
-  final Team team;
-  TeamDetailArguments(this.team);
 }
