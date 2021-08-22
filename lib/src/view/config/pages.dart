@@ -3,6 +3,7 @@ import 'package:formulastudent/src/view/pages/chat/chat_page.dart';
 import 'package:formulastudent/src/view/pages/faq/faq_page.dart';
 import 'package:formulastudent/src/view/pages/myteam/my_team_page.dart';
 import 'package:formulastudent/src/view/pages/teams/teams_page.dart';
+import 'package:formulastudent/src/view/pages/teamsdetail/teams_detail_page.dart';
 import 'package:formulastudent/src/view/pages/timeline/timeline_page.dart';
 import 'package:get/get.dart';
 
@@ -32,6 +33,11 @@ List<GetPage> getApplicationPages() {
         name: '/teams',
         page: () => TeamsPage(),
         binding: TeamsPageBinding(),
+        transition: Transition.rightToLeft),
+    GetPage(
+        name: '/teamsDetail',
+        page: () => TeamsDetailPage(),
+        binding: TeamsDetailPageBinding(),
         transition: Transition.rightToLeft)
   ];
 }

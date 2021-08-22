@@ -3,9 +3,12 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:formulastudent/src/business/data/helpers/data_transformer.dart';
+import 'package:formulastudent/src/business/data/repositories/firebase/team_member_repository_firebase_impl.dart';
 import 'package:formulastudent/src/business/data/repositories/firebase/team_repository_firebase_impl.dart';
 import 'package:formulastudent/src/business/domain/entities/team.dart';
+import 'package:formulastudent/src/business/domain/entities/team_member.dart';
 import 'package:formulastudent/src/business/domain/repositories/team/team_repository_exception.dart';
+import 'package:formulastudent/src/business/domain/repositories/teammember/team_member_repository_exception.dart';
 
 import 'package:get/get.dart';
 import 'package:mockito/annotations.dart';
@@ -16,10 +19,9 @@ import 'team_repository_firebase_impl_test.mocks.dart';
 
 
 /// Constants
-const String TEAM_NAME = "teamName";
-const String TEAM_TYPE = "combustion";
-const String TEAM_ID = "0";
-const String TEAM_LOGO = "logo";
+const String TEAM_MEMBER_NAME = "name";
+const String TEAM_MEMBER_MAIL = "mail@fss.com";
+const String TEAM_MEMBER_PROFILE = "profile";
 
 @GenerateMocks([FirebaseFirestore, DataTransformer, QuerySnapshot, CollectionReference, Query],
     customMocks: [
@@ -34,7 +36,7 @@ void main() {
   Get.put<FirebaseFirestore>(mockFirebaseFirestore);
   Get.put<DataTransformer>(mockDataTransformer);
 
-  test("getAllTeams_Ok", () async {
+  test("getTeamMembersByTeam_Ok", () async {
 
     var mockQuerySnapshot = new MockQuerySnapshot<Map<String,dynamic>>();
     var mockQuery = new MockQuery<Map<String,dynamic>>();
@@ -45,26 +47,22 @@ void main() {
     ];
 
     when(mockFirebaseFirestore.collection(any)).thenReturn(mockCollectionReference);
-    when(mockCollectionReference.orderBy(any)).thenReturn(mockQuery);
+    when(mockCollectionReference.where(any, isEqualTo: anyNamed("isEqualTo"))).thenReturn(mockQuery);
     when(mockQuery.get()).thenAnswer((_) async => mockQuerySnapshot);
     when(mockQuerySnapshot.docs).thenReturn(listOfDocuments);
-    when(mockDataTransformer.createTeamFromSnapshot(any)).thenReturn(createTeam());
+    when(mockDataTransformer.createTeamMemberFromSnapshot(any)).thenReturn(createTeamMember());
 
-    var teamRepository = new TeamRepositoryFirebaseImpl();
-    var teams = await teamRepository.getAllTeams();
+    var teamMemberRepository = new TeamMemberRepositoryFirebaseImpl();
+    var teamMembers = await teamMemberRepository.getTeamMembersByTeam("teamId");
 
-    expect(teams.length, 2);
-    expect(teams[0].name, TEAM_NAME);
-    expect(teams[0].type, TEAM_TYPE);
-    expect(teams[0].id, TEAM_ID);
-    expect(teams[0].logo, TEAM_LOGO);
-    expect(teams[1].name, TEAM_NAME);
-    expect(teams[1].type, TEAM_TYPE);
-    expect(teams[1].id, TEAM_ID);
-    expect(teams[1].logo, TEAM_LOGO);
+    expect(teamMembers.length, 2);
+    expect(teamMembers[0].name, TEAM_MEMBER_NAME);
+    expect(teamMembers[0].mail, TEAM_MEMBER_MAIL);
+    expect(teamMembers[0].profileImage, TEAM_MEMBER_PROFILE);
+
   });
 
-  test("getAllTeams_throwError", () async {
+  test("getTeamMembersByTeam_throwError", () async {
 
     var mockQuerySnapshot = new MockQuerySnapshot<Map<String,dynamic>>();
     var mockQuery = new MockQuery<Map<String,dynamic>>();
@@ -74,24 +72,23 @@ void main() {
     when(mockCollectionReference.orderBy(any)).thenReturn(mockQuery);
     when(mockQuery.get()).thenAnswer((_) async => mockQuerySnapshot);
     when(mockQuerySnapshot.docs).thenThrow(Exception());
-    when(mockDataTransformer.createTeamFromSnapshot(any)).thenReturn(createTeam());
+    when(mockDataTransformer.createTeamMemberFromSnapshot(any)).thenReturn(createTeamMember());
 
-    var teamRepository = new TeamRepositoryFirebaseImpl();
-    await teamRepository.getAllTeams().catchError((e) {
-      FutureOr<List<Team>> failureResponse = [];
-      expect(e is TeamRepositoryException, true);
-      expect((e as TeamRepositoryException).cause, 'Error retrieving all teams');
+    var teamMemberRepository = new TeamMemberRepositoryFirebaseImpl();
+    await teamMemberRepository.getTeamMembersByTeam("teamId").catchError((e) {
+      FutureOr<List<TeamMember>> failureResponse = [];
+      expect(e is TeamMemberRepositoryException, true);
+      expect((e as TeamMemberRepositoryException).cause, 'Error retrieving team members');
       return failureResponse;
     });
   });
 }
 
-/// Create a new fake team
-Team createTeam(){
-  Team team = new Team();
-  team.name = TEAM_NAME;
-  team.type = TEAM_TYPE;
-  team.id = TEAM_ID;
-  team.logo = TEAM_LOGO;
-  return team;
+/// Create a new fake team member
+TeamMember createTeamMember(){
+  TeamMember teamMember = new TeamMember();
+  teamMember.name = TEAM_MEMBER_NAME;
+  teamMember.mail = TEAM_MEMBER_MAIL;
+  teamMember.profileImage = TEAM_MEMBER_PROFILE;
+  return teamMember;
 }
