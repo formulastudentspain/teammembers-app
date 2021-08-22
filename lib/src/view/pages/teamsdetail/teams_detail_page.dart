@@ -15,24 +15,10 @@ class TeamsDetailPage extends StatelessWidget {
     return SafeArea(
           child: Scaffold(
               appBar: AppBar(
-                title: const Text('Team detail'),
+                title: Text(viewController.selectedTeam.name),
               ),
               bottomNavigationBar: BottomNavigation(),
-              body: Column(
-                children: <Widget>[
-                  Visibility(
-                      visible: true,
-                      child: Expanded(child: Pages(viewController.selectedTeam))),
-                  Visibility(
-                      visible: false,
-                      child: Expanded(
-                          child: Center(child: CircularProgressIndicator(color: Colors.red),
-                      ))),
-                  Visibility(
-                      visible: false,
-                      child: Expanded(child: Center(child: Text("Error"))))
-                ],
-              )),
+              body: Pages(viewController.selectedTeam)),
         );
   }
 }

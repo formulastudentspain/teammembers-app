@@ -1,4 +1,4 @@
-import 'app_exception.dart';
+import '../app_exception.dart';
 
 class TeamRepositoryException extends AppException {
   TeamRepositoryException(String cause) : super(cause);

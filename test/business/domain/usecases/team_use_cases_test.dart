@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:formulastudent/src/business/domain/entities/team.dart';
-import 'package:formulastudent/src/business/domain/repositories/team_repository.dart';
-import 'package:formulastudent/src/business/domain/repositories/team_repository_exception.dart';
+import 'package:formulastudent/src/business/domain/repositories/team/team_repository.dart';
+import 'package:formulastudent/src/business/domain/repositories/team/team_repository_exception.dart';
 import 'package:formulastudent/src/business/domain/usecases/impl/team_use_cases_impl.dart';
 import 'package:formulastudent/src/business/domain/usecases/team_use_cases.dart';
 import 'package:get/get.dart';
