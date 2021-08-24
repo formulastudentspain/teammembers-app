@@ -1,4 +1,4 @@
-name: Flutter
+name: Workflow
 on: [push]
 jobs:
   build-test:
