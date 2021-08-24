@@ -12,21 +12,13 @@ jobs:
         with:
           flutter-version: '2.2.3'
 
-      # Note: This workflow uses the latest stable version of the Dart SDK.
-      # You can specify other versions if desired, see documentation here:
-      # https://github.com/dart-lang/setup-dart/blob/main/README.md
-      # - uses: dart-lang/setup-dart@v1
-      - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
-
+      # Install dependencies
       - name: Install dependencies
         run: flutter pub get
           
+      # Generate all mock files    
       - name: Generate mocks
         run: flutter pub run build_runner build
-
-      # Uncomment this step to verify the use of 'dart format' on each commit.
-      # - name: Verify formatting
-      #   run: dart format --output=none --set-exit-if-changed .
 
       # Consider passing '--fatal-infos' for slightly stricter analysis.
       - name: Analyze project source
@@ -37,14 +29,11 @@ jobs:
       # want to change this to 'flutter test'.
       - name: Run tests
         run: flutter test --coverage
-        
-      - uses: romeovs/lcov-reporter-action@v0.2.16
-        with:
-          lcov-file: ./coverage/lcov.info
-        
+      
+      # Check test coverage
       - uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
         with:
           path: "./coverage/lcov.info"
-          min_coverage: 99
+          min_coverage: 90
       
         
