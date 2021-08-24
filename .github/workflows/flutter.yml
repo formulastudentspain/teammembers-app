@@ -21,15 +21,19 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
         
-  tests:
+  test:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Generate mocks
-        run: flutter pub run build_runner build
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: '2.2.3'
+          
+      - name: Generate mocks
+        run: flutter pub run build_runner build
 
       # Uncomment this step to verify the use of 'dart format' on each commit.
       # - name: Verify formatting
