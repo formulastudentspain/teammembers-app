@@ -1,4 +1,6 @@
 # Formula Student Spain: Team members
+[![Workflow](https://github.com/fssdev/teammembers-app/actions/workflows/flutter.yml/badge.svg)](https://github.com/fssdev/teammembers-app/actions/workflows/flutter.yml) 
+[![codecov](https://codecov.io/gh/fssdev/teammembers-app/branch/main/graph/badge.svg?token=JHDYP3693N)](https://codecov.io/gh/fssdev/teammembers-app)
 
 This is a mobile application for both Android and iOS devices that will be used by the team members of the competition.
 
