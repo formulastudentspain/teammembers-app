@@ -43,7 +43,7 @@ jobs:
           min_coverage: 90
           
       - name: Upload coverage to codecov
-          run: curl -s https://codecov.io/bash
-          shell: bash
+        run: curl -s https://codecov.io/bash
+        shell: bash
       
         
