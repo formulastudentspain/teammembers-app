@@ -30,4 +30,7 @@ Just in case things are not clear enough.
 ## Tech stack
 * Flutter
 * Firebase (Auth, Firestore)
+* GetX (dependency injection, navigation, etc)
 * Clean architecture
+* GitHub actions
+* Coverage > 90%
