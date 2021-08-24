@@ -45,7 +45,8 @@ jobs:
       - name: Push CodeCov report
         run: pub run codecov
           
-      - name: Codecov report
-        uses: codecov/codecov-action@v2
+      - name: Upload coverage to codecov
+        run: curl -s https://codecov.io/bash
+        shell: bash
       
         
