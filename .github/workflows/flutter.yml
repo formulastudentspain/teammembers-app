@@ -42,11 +42,8 @@ jobs:
           path: "./coverage/lcov.info"
           min_coverage: 90
           
-      - name: Push CodeCov report
-        run: pub run codecov
-          
       - name: Upload coverage to codecov
-        run: curl -s https://codecov.io/bash
-        shell: bash
+          run: curl -s https://codecov.io/bash
+          shell: bash
       
         
