@@ -37,8 +37,8 @@ dependencies:
   cloud_firestore: ^2.4.0
   
   # Coverage
-  coverage: "^0.7.0"
-  codecov: "^0.4.0"
+  coverage: ^1.0.3
+  codecov: ^1.0.0
 
 dev_dependencies:
   flutter_test:
