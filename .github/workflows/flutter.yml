@@ -22,6 +22,7 @@ jobs:
         run: flutter pub get
         
   tests:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Generate mocks
